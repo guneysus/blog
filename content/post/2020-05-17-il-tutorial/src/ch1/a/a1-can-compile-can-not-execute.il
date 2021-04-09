@@ -1,0 +1,4 @@
+.method void foo() 
+{
+  .entrypoint
+}
