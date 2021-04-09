@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>CollectionAllocations.AdvancedTypesAllocations-20200724-124911</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19042
+Intel Core i7-8665U CPU 1.90GHz (Coffee Lake), 1 CPU, 8 logical and 4 physical cores
+.NET Core SDK=3.1.302
+  [Host]     : .NET Core 3.1.6 (CoreCLR 4.700.20.26901, CoreFX 4.700.20.31603), X64 RyuJIT
+  Job-XMOFIM : .NET Core 3.1.6 (CoreCLR 4.700.20.26901, CoreFX 4.700.20.31603), X64 RyuJIT
+  Job-JFNHCL : .NET Core 3.1.6 (CoreCLR 4.700.20.26901, CoreFX 4.700.20.31603), X64 RyuJIT
+  Job-BOGPDX : .NET Core 3.1.6 (CoreCLR 4.700.20.26901, CoreFX 4.700.20.31603), X64 RyuJIT
+  Job-IAPZBU : .NET Core 3.1.6 (CoreCLR 4.700.20.26901, CoreFX 4.700.20.31603), X64 RyuJIT
+  Job-FVTULY : .NET Core 3.1.6 (CoreCLR 4.700.20.26901, CoreFX 4.700.20.31603), X64 RyuJIT
+  Job-PMTURM : .NET Core 3.1.6 (CoreCLR 4.700.20.26901, CoreFX 4.700.20.31603), X64 RyuJIT
+  Job-DQLYWR : .NET Core 3.1.6 (CoreCLR 4.700.20.26901, CoreFX 4.700.20.31603), X64 RyuJIT
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>Method</th><th> Job</th><th>MinInvokeCount</th><th>LaunchCount</th><th>MaxIterationCount</th><th>MaxWarmupIterationCount</th><th>MinIterationCount</th><th>MinWarmupIterationCount</th><th>WarmupCount</th><th>  Mean</th><th>Error</th><th>StdDev</th><th>Median</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>Thread</td><td>Job-XMOFIM</td><td>Default</td><td>1</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>3,875.659 ns</td><td>76.6788 ns</td><td>114.7692 ns</td><td>3,874.363 ns</td><td>0.2594</td><td>0.2594</td><td>0.2594</td><td>192 B</td>
+</tr><tr><td>Stopwatch</td><td>Job-XMOFIM</td><td>Default</td><td>1</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>6.471 ns</td><td>0.2419 ns</td><td>0.2263 ns</td><td>6.410 ns</td><td>0.0096</td><td>-</td><td>-</td><td>40 B</td>
+</tr><tr><td>Thread</td><td>Job-JFNHCL</td><td>Default</td><td>Default</td><td>16</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>3,847.377 ns</td><td>225.7193 ns</td><td>221.6866 ns</td><td>3,811.216 ns</td><td>0.2518</td><td>0.2518</td><td>0.2518</td><td>192 B</td>
+</tr><tr><td>Stopwatch</td><td>Job-JFNHCL</td><td>Default</td><td>Default</td><td>16</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>6.470 ns</td><td>0.2293 ns</td><td>0.2145 ns</td><td>6.446 ns</td><td>0.0096</td><td>-</td><td>-</td><td>40 B</td>
+</tr><tr><td>Thread</td><td>Job-BOGPDX</td><td>Default</td><td>Default</td><td>Default</td><td>7</td><td>Default</td><td>Default</td><td>Default</td><td>4,587.079 ns</td><td>190.8288 ns</td><td>562.6631 ns</td><td>4,564.795 ns</td><td>0.1450</td><td>0.1450</td><td>0.1450</td><td>192 B</td>
+</tr><tr><td>Stopwatch</td><td>Job-BOGPDX</td><td>Default</td><td>Default</td><td>Default</td><td>7</td><td>Default</td><td>Default</td><td>Default</td><td>7.559 ns</td><td>0.3484 ns</td><td>1.0272 ns</td><td>7.249 ns</td><td>0.0095</td><td>-</td><td>-</td><td>40 B</td>
+</tr><tr><td>Thread</td><td>Job-IAPZBU</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>1</td><td>Default</td><td>Default</td><td>3,792.396 ns</td><td>69.1760 ns</td><td>121.1562 ns</td><td>3,800.788 ns</td><td>0.2823</td><td>0.2823</td><td>0.2823</td><td>192 B</td>
+</tr><tr><td>Stopwatch</td><td>Job-IAPZBU</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>1</td><td>Default</td><td>Default</td><td>5.851 ns</td><td>0.2367 ns</td><td>0.1848 ns</td><td>5.825 ns</td><td>0.0096</td><td>-</td><td>-</td><td>40 B</td>
+</tr><tr><td>Thread</td><td>Job-FVTULY</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>1</td><td>Default</td><td>3,702.323 ns</td><td>74.0667 ns</td><td>110.8596 ns</td><td>3,709.700 ns</td><td>0.2441</td><td>0.2441</td><td>0.2441</td><td>192 B</td>
+</tr><tr><td>Stopwatch</td><td>Job-FVTULY</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>1</td><td>Default</td><td>5.651 ns</td><td>0.1660 ns</td><td>0.1553 ns</td><td>5.651 ns</td><td>0.0096</td><td>-</td><td>-</td><td>40 B</td>
+</tr><tr><td>Thread</td><td>Job-PMTURM</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>1</td><td>3,632.863 ns</td><td>69.8729 ns</td><td>88.3668 ns</td><td>3,606.241 ns</td><td>0.2518</td><td>0.2518</td><td>0.2518</td><td>192 B</td>
+</tr><tr><td>Stopwatch</td><td>Job-PMTURM</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>1</td><td>5.666 ns</td><td>0.1686 ns</td><td>0.1577 ns</td><td>5.690 ns</td><td>0.0096</td><td>-</td><td>-</td><td>40 B</td>
+</tr><tr><td>Thread</td><td>Job-DQLYWR</td><td>1</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>3,654.189 ns</td><td>72.3239 ns</td><td>91.4666 ns</td><td>3,611.645 ns</td><td>0.2747</td><td>0.2747</td><td>0.2747</td><td>192 B</td>
+</tr><tr><td>Stopwatch</td><td>Job-DQLYWR</td><td>1</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>6.971 ns</td><td>0.2685 ns</td><td>0.3935 ns</td><td>6.886 ns</td><td>0.0096</td><td>-</td><td>-</td><td>40 B</td>
+</tr></tbody></table>
+</body>
+</html>

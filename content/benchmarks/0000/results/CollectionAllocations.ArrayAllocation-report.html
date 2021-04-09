@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>CollectionAllocations.ArrayAllocation-20200724-091744</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19042
+Intel Core i7-8665U CPU 1.90GHz (Coffee Lake), 1 CPU, 8 logical and 4 physical cores
+.NET Core SDK=3.1.302
+  [Host]     : .NET Core 3.1.6 (CoreCLR 4.700.20.26901, CoreFX 4.700.20.31603), X64 RyuJIT
+  Job-XMOFIM : .NET Core 3.1.6 (CoreCLR 4.700.20.26901, CoreFX 4.700.20.31603), X64 RyuJIT
+  Job-JFNHCL : .NET Core 3.1.6 (CoreCLR 4.700.20.26901, CoreFX 4.700.20.31603), X64 RyuJIT
+  Job-BOGPDX : .NET Core 3.1.6 (CoreCLR 4.700.20.26901, CoreFX 4.700.20.31603), X64 RyuJIT
+  Job-IAPZBU : .NET Core 3.1.6 (CoreCLR 4.700.20.26901, CoreFX 4.700.20.31603), X64 RyuJIT
+  Job-FVTULY : .NET Core 3.1.6 (CoreCLR 4.700.20.26901, CoreFX 4.700.20.31603), X64 RyuJIT
+  Job-PMTURM : .NET Core 3.1.6 (CoreCLR 4.700.20.26901, CoreFX 4.700.20.31603), X64 RyuJIT
+  Job-DQLYWR : .NET Core 3.1.6 (CoreCLR 4.700.20.26901, CoreFX 4.700.20.31603), X64 RyuJIT
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>Method</th><th> Job</th><th>MinInvokeCount</th><th>LaunchCount</th><th>MaxIterationCount</th><th>MaxWarmupIterationCount</th><th>MinIterationCount</th><th>MinWarmupIterationCount</th><th>WarmupCount</th><th>N</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Median</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>IntArray</td><td>Job-XMOFIM</td><td>Default</td><td>1</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>0</td><td>3.935 ns</td><td>0.2029 ns</td><td>0.2566 ns</td><td>3.808 ns</td><td>0.0057</td><td>-</td><td>-</td><td>24 B</td>
+</tr><tr><td>CharArray</td><td>Job-XMOFIM</td><td>Default</td><td>1</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>0</td><td>4.228 ns</td><td>0.1536 ns</td><td>0.1199 ns</td><td>4.193 ns</td><td>0.0057</td><td>-</td><td>-</td><td>24 B</td>
+</tr><tr><td>IntArray</td><td>Job-JFNHCL</td><td>Default</td><td>Default</td><td>16</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>0</td><td>3.836 ns</td><td>0.0734 ns</td><td>0.0651 ns</td><td>3.838 ns</td><td>0.0057</td><td>-</td><td>-</td><td>24 B</td>
+</tr><tr><td>CharArray</td><td>Job-JFNHCL</td><td>Default</td><td>Default</td><td>16</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>0</td><td>3.809 ns</td><td>0.1011 ns</td><td>0.0945 ns</td><td>3.802 ns</td><td>0.0057</td><td>-</td><td>-</td><td>24 B</td>
+</tr><tr><td>IntArray</td><td>Job-BOGPDX</td><td>Default</td><td>Default</td><td>Default</td><td>7</td><td>Default</td><td>Default</td><td>Default</td><td>0</td><td>4.167 ns</td><td>0.0743 ns</td><td>0.0695 ns</td><td>4.192 ns</td><td>0.0057</td><td>-</td><td>-</td><td>24 B</td>
+</tr><tr><td>CharArray</td><td>Job-BOGPDX</td><td>Default</td><td>Default</td><td>Default</td><td>7</td><td>Default</td><td>Default</td><td>Default</td><td>0</td><td>4.206 ns</td><td>0.1188 ns</td><td>0.1053 ns</td><td>4.230 ns</td><td>0.0057</td><td>-</td><td>-</td><td>24 B</td>
+</tr><tr><td>IntArray</td><td>Job-IAPZBU</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>1</td><td>Default</td><td>Default</td><td>0</td><td>4.126 ns</td><td>0.1813 ns</td><td>0.0281 ns</td><td>4.130 ns</td><td>0.0057</td><td>-</td><td>-</td><td>24 B</td>
+</tr><tr><td>CharArray</td><td>Job-IAPZBU</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>1</td><td>Default</td><td>Default</td><td>0</td><td>4.209 ns</td><td>0.1462 ns</td><td>0.0380 ns</td><td>4.215 ns</td><td>0.0057</td><td>-</td><td>-</td><td>24 B</td>
+</tr><tr><td>IntArray</td><td>Job-FVTULY</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>1</td><td>Default</td><td>0</td><td>4.204 ns</td><td>0.1120 ns</td><td>0.1047 ns</td><td>4.232 ns</td><td>0.0057</td><td>-</td><td>-</td><td>24 B</td>
+</tr><tr><td>CharArray</td><td>Job-FVTULY</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>1</td><td>Default</td><td>0</td><td>4.171 ns</td><td>0.0735 ns</td><td>0.0652 ns</td><td>4.189 ns</td><td>0.0057</td><td>-</td><td>-</td><td>24 B</td>
+</tr><tr><td>IntArray</td><td>Job-PMTURM</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>1</td><td>0</td><td>3.801 ns</td><td>0.0699 ns</td><td>0.0583 ns</td><td>3.810 ns</td><td>0.0057</td><td>-</td><td>-</td><td>24 B</td>
+</tr><tr><td>CharArray</td><td>Job-PMTURM</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>1</td><td>0</td><td>4.199 ns</td><td>0.1028 ns</td><td>0.0962 ns</td><td>4.202 ns</td><td>0.0057</td><td>-</td><td>-</td><td>24 B</td>
+</tr><tr><td>IntArray</td><td>Job-DQLYWR</td><td>1</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>0</td><td>4.182 ns</td><td>0.0778 ns</td><td>0.0690 ns</td><td>4.178 ns</td><td>0.0057</td><td>-</td><td>-</td><td>24 B</td>
+</tr><tr><td>CharArray</td><td>Job-DQLYWR</td><td>1</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>0</td><td>4.220 ns</td><td>0.0744 ns</td><td>0.0696 ns</td><td>4.223 ns</td><td>0.0057</td><td>-</td><td>-</td><td>24 B</td>
+</tr><tr><td>IntArray</td><td>Job-XMOFIM</td><td>Default</td><td>1</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>8</td><td>6.727 ns</td><td>0.1247 ns</td><td>0.1105 ns</td><td>6.724 ns</td><td>0.0134</td><td>-</td><td>-</td><td>56 B</td>
+</tr><tr><td>CharArray</td><td>Job-XMOFIM</td><td>Default</td><td>1</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>8</td><td>6.919 ns</td><td>0.1258 ns</td><td>0.1177 ns</td><td>6.945 ns</td><td>0.0096</td><td>-</td><td>-</td><td>40 B</td>
+</tr><tr><td>IntArray</td><td>Job-JFNHCL</td><td>Default</td><td>Default</td><td>16</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>8</td><td>6.563 ns</td><td>0.3136 ns</td><td>0.2933 ns</td><td>6.432 ns</td><td>0.0134</td><td>-</td><td>-</td><td>56 B</td>
+</tr><tr><td>CharArray</td><td>Job-JFNHCL</td><td>Default</td><td>Default</td><td>16</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>8</td><td>5.248 ns</td><td>0.1497 ns</td><td>0.1169 ns</td><td>5.223 ns</td><td>0.0096</td><td>-</td><td>-</td><td>40 B</td>
+</tr><tr><td>IntArray</td><td>Job-BOGPDX</td><td>Default</td><td>Default</td><td>Default</td><td>7</td><td>Default</td><td>Default</td><td>Default</td><td>8</td><td>11.236 ns</td><td>1.1185 ns</td><td>3.2980 ns</td><td>10.332 ns</td><td>0.0134</td><td>-</td><td>-</td><td>56 B</td>
+</tr><tr><td>CharArray</td><td>Job-BOGPDX</td><td>Default</td><td>Default</td><td>Default</td><td>7</td><td>Default</td><td>Default</td><td>Default</td><td>8</td><td>5.836 ns</td><td>0.2769 ns</td><td>0.6740 ns</td><td>5.733 ns</td><td>0.0095</td><td>-</td><td>-</td><td>40 B</td>
+</tr><tr><td>IntArray</td><td>Job-IAPZBU</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>1</td><td>Default</td><td>Default</td><td>8</td><td>5.984 ns</td><td>0.1982 ns</td><td>0.0307 ns</td><td>5.986 ns</td><td>0.0134</td><td>-</td><td>-</td><td>56 B</td>
+</tr><tr><td>CharArray</td><td>Job-IAPZBU</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>1</td><td>Default</td><td>Default</td><td>8</td><td>6.734 ns</td><td>0.5432 ns</td><td>1.5232 ns</td><td>6.320 ns</td><td>0.0096</td><td>-</td><td>-</td><td>40 B</td>
+</tr><tr><td>IntArray</td><td>Job-FVTULY</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>1</td><td>Default</td><td>8</td><td>6.535 ns</td><td>0.1874 ns</td><td>0.1463 ns</td><td>6.527 ns</td><td>0.0134</td><td>-</td><td>-</td><td>56 B</td>
+</tr><tr><td>CharArray</td><td>Job-FVTULY</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>1</td><td>Default</td><td>8</td><td>9.595 ns</td><td>0.7866 ns</td><td>2.3192 ns</td><td>9.107 ns</td><td>0.0095</td><td>-</td><td>-</td><td>40 B</td>
+</tr><tr><td>IntArray</td><td>Job-PMTURM</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>1</td><td>8</td><td>7.678 ns</td><td>0.3105 ns</td><td>0.7559 ns</td><td>7.582 ns</td><td>0.0134</td><td>-</td><td>-</td><td>56 B</td>
+</tr><tr><td>CharArray</td><td>Job-PMTURM</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>1</td><td>8</td><td>5.972 ns</td><td>0.2757 ns</td><td>0.4901 ns</td><td>5.808 ns</td><td>0.0096</td><td>-</td><td>-</td><td>40 B</td>
+</tr><tr><td>IntArray</td><td>Job-DQLYWR</td><td>1</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>8</td><td>8.834 ns</td><td>0.4951 ns</td><td>1.4598 ns</td><td>8.470 ns</td><td>0.0134</td><td>-</td><td>-</td><td>56 B</td>
+</tr><tr><td>CharArray</td><td>Job-DQLYWR</td><td>1</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>8</td><td>6.133 ns</td><td>0.3257 ns</td><td>0.9603 ns</td><td>5.961 ns</td><td>0.0096</td><td>-</td><td>-</td><td>40 B</td>
+</tr><tr><td>IntArray</td><td>Job-XMOFIM</td><td>Default</td><td>1</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>64</td><td>26.629 ns</td><td>0.6855 ns</td><td>1.0873 ns</td><td>26.663 ns</td><td>0.0669</td><td>-</td><td>-</td><td>280 B</td>
+</tr><tr><td>CharArray</td><td>Job-XMOFIM</td><td>Default</td><td>1</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>64</td><td>15.092 ns</td><td>0.4087 ns</td><td>0.3823 ns</td><td>15.094 ns</td><td>0.0363</td><td>-</td><td>-</td><td>152 B</td>
+</tr><tr><td>IntArray</td><td>Job-JFNHCL</td><td>Default</td><td>Default</td><td>16</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>64</td><td>44.778 ns</td><td>9.1263 ns</td><td>8.9633 ns</td><td>43.638 ns</td><td>0.0669</td><td>-</td><td>-</td><td>280 B</td>
+</tr><tr><td>CharArray</td><td>Job-JFNHCL</td><td>Default</td><td>Default</td><td>16</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>64</td><td>19.200 ns</td><td>3.6565 ns</td><td>3.5912 ns</td><td>17.509 ns</td><td>0.0363</td><td>-</td><td>-</td><td>152 B</td>
+</tr><tr><td>IntArray</td><td>Job-BOGPDX</td><td>Default</td><td>Default</td><td>Default</td><td>7</td><td>Default</td><td>Default</td><td>Default</td><td>64</td><td>29.228 ns</td><td>1.5285 ns</td><td>4.4344 ns</td><td>28.136 ns</td><td>0.0669</td><td>-</td><td>-</td><td>280 B</td>
+</tr><tr><td>CharArray</td><td>Job-BOGPDX</td><td>Default</td><td>Default</td><td>Default</td><td>7</td><td>Default</td><td>Default</td><td>Default</td><td>64</td><td>16.242 ns</td><td>0.6338 ns</td><td>1.8489 ns</td><td>15.700 ns</td><td>0.0363</td><td>-</td><td>-</td><td>152 B</td>
+</tr><tr><td>IntArray</td><td>Job-IAPZBU</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>1</td><td>Default</td><td>Default</td><td>64</td><td>34.674 ns</td><td>3.3009 ns</td><td>9.7328 ns</td><td>31.436 ns</td><td>0.0669</td><td>-</td><td>-</td><td>280 B</td>
+</tr><tr><td>CharArray</td><td>Job-IAPZBU</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>1</td><td>Default</td><td>Default</td><td>64</td><td>18.383 ns</td><td>1.6686 ns</td><td>4.8144 ns</td><td>16.093 ns</td><td>0.0363</td><td>-</td><td>-</td><td>152 B</td>
+</tr><tr><td>IntArray</td><td>Job-FVTULY</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>1</td><td>Default</td><td>64</td><td>26.989 ns</td><td>1.2136 ns</td><td>3.4625 ns</td><td>26.757 ns</td><td>0.0669</td><td>-</td><td>-</td><td>280 B</td>
+</tr><tr><td>CharArray</td><td>Job-FVTULY</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>1</td><td>Default</td><td>64</td><td>13.893 ns</td><td>0.4344 ns</td><td>0.7608 ns</td><td>13.642 ns</td><td>0.0363</td><td>-</td><td>-</td><td>152 B</td>
+</tr><tr><td>IntArray</td><td>Job-PMTURM</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>1</td><td>64</td><td>27.244 ns</td><td>0.6853 ns</td><td>1.7067 ns</td><td>27.201 ns</td><td>0.0669</td><td>-</td><td>-</td><td>280 B</td>
+</tr><tr><td>CharArray</td><td>Job-PMTURM</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>1</td><td>64</td><td>14.853 ns</td><td>0.4435 ns</td><td>0.6638 ns</td><td>14.775 ns</td><td>0.0363</td><td>-</td><td>-</td><td>152 B</td>
+</tr><tr><td>IntArray</td><td>Job-DQLYWR</td><td>1</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>64</td><td>27.789 ns</td><td>1.4052 ns</td><td>4.0092 ns</td><td>26.363 ns</td><td>0.0669</td><td>-</td><td>-</td><td>280 B</td>
+</tr><tr><td>CharArray</td><td>Job-DQLYWR</td><td>1</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>64</td><td>15.566 ns</td><td>0.6144 ns</td><td>1.8116 ns</td><td>15.177 ns</td><td>0.0363</td><td>-</td><td>-</td><td>152 B</td>
+</tr><tr><td>IntArray</td><td>Job-XMOFIM</td><td>Default</td><td>1</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>512</td><td>153.107 ns</td><td>3.9017 ns</td><td>10.8762 ns</td><td>150.887 ns</td><td>0.4952</td><td>-</td><td>-</td><td>2072 B</td>
+</tr><tr><td>CharArray</td><td>Job-XMOFIM</td><td>Default</td><td>1</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>512</td><td>86.046 ns</td><td>3.4121 ns</td><td>9.2828 ns</td><td>82.741 ns</td><td>0.2505</td><td>-</td><td>-</td><td>1048 B</td>
+</tr><tr><td>IntArray</td><td>Job-JFNHCL</td><td>Default</td><td>Default</td><td>16</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>512</td><td>162.110 ns</td><td>9.7449 ns</td><td>9.5708 ns</td><td>160.769 ns</td><td>0.4952</td><td>-</td><td>-</td><td>2072 B</td>
+</tr><tr><td>CharArray</td><td>Job-JFNHCL</td><td>Default</td><td>Default</td><td>16</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>512</td><td>84.224 ns</td><td>3.6606 ns</td><td>3.0568 ns</td><td>83.358 ns</td><td>0.2505</td><td>-</td><td>-</td><td>1048 B</td>
+</tr><tr><td>IntArray</td><td>Job-BOGPDX</td><td>Default</td><td>Default</td><td>Default</td><td>7</td><td>Default</td><td>Default</td><td>Default</td><td>512</td><td>186.018 ns</td><td>7.4010 ns</td><td>21.4717 ns</td><td>176.635 ns</td><td>0.4952</td><td>-</td><td>-</td><td>2072 B</td>
+</tr><tr><td>CharArray</td><td>Job-BOGPDX</td><td>Default</td><td>Default</td><td>Default</td><td>7</td><td>Default</td><td>Default</td><td>Default</td><td>512</td><td>99.160 ns</td><td>2.7371 ns</td><td>7.9843 ns</td><td>98.183 ns</td><td>0.2503</td><td>-</td><td>-</td><td>1048 B</td>
+</tr><tr><td>IntArray</td><td>Job-IAPZBU</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>1</td><td>Default</td><td>Default</td><td>512</td><td>193.055 ns</td><td>6.0813 ns</td><td>17.8353 ns</td><td>197.145 ns</td><td>0.4952</td><td>-</td><td>-</td><td>2072 B</td>
+</tr><tr><td>CharArray</td><td>Job-IAPZBU</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>1</td><td>Default</td><td>Default</td><td>512</td><td>85.681 ns</td><td>2.2791 ns</td><td>6.5758 ns</td><td>85.522 ns</td><td>0.2505</td><td>-</td><td>-</td><td>1048 B</td>
+</tr><tr><td>IntArray</td><td>Job-FVTULY</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>1</td><td>Default</td><td>512</td><td>162.734 ns</td><td>5.5669 ns</td><td>15.8826 ns</td><td>157.817 ns</td><td>0.4952</td><td>-</td><td>-</td><td>2072 B</td>
+</tr><tr><td>CharArray</td><td>Job-FVTULY</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>1</td><td>Default</td><td>512</td><td>80.978 ns</td><td>1.7665 ns</td><td>3.8402 ns</td><td>80.254 ns</td><td>0.2505</td><td>-</td><td>-</td><td>1048 B</td>
+</tr><tr><td>IntArray</td><td>Job-PMTURM</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>1</td><td>512</td><td>166.505 ns</td><td>5.2106 ns</td><td>15.1169 ns</td><td>161.948 ns</td><td>0.4952</td><td>-</td><td>-</td><td>2072 B</td>
+</tr><tr><td>CharArray</td><td>Job-PMTURM</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>1</td><td>512</td><td>86.071 ns</td><td>2.9773 ns</td><td>8.7785 ns</td><td>81.862 ns</td><td>0.2505</td><td>-</td><td>-</td><td>1048 B</td>
+</tr><tr><td>IntArray</td><td>Job-DQLYWR</td><td>1</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>512</td><td>152.779 ns</td><td>3.1318 ns</td><td>4.3903 ns</td><td>153.590 ns</td><td>0.4952</td><td>-</td><td>-</td><td>2072 B</td>
+</tr><tr><td>CharArray</td><td>Job-DQLYWR</td><td>1</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>Default</td><td>512</td><td>87.958 ns</td><td>3.4445 ns</td><td>9.9381 ns</td><td>86.906 ns</td><td>0.2505</td><td>-</td><td>-</td><td>1048 B</td>
+</tr></tbody></table>
+</body>
+</html>
